@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>WayOfTheWind</title>
+  </head>
+  <body>
+
+    <nav>
+      <img style="width:100%;" src="https://camo.githubusercontent.com/ec61b371191305f110e86ba81b5609bf08159e9e4c7662737447ba440b837b5c/68747470733a2f2f63617073756c652d72656e6465722e76657263656c2e6170702f6170693f747970653d776176696e6726636f6c6f723d366337303836266865696768743d3132302673656374696f6e3d686561646572">
+    </nav>
+
+
+    <div class="wrapper">
+
+      <div id="platforms" class="platform-selector selector flex" onclick="flow(this)">
+        <div id="switch">
+          <input type="radio" name="platform" checked>
+        </div>
+        <div id="wii-u">
+          <input type="radio" name="platform">
+        </div>
+        <div id="wii">
+          <input type="radio" name="platform">
+        </div>
+      </div>
+
+
+      <div class="games">
+
+        <div id="switch">
+          <div id="totk"></div>
+          <div id="mk8dx"></div>
+          <div id="splat2"></div>
+        </div>
+
+        <div id="wii-u" style="display: none;"> <!-- ugly and non modular ==> temp -->
+          <div id="botw"></div>
+        </div>
+
+        <div id="wii" style="display: none;">
+          <div id="mkwii"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="script.js" type="text/javascript"></script>
+
+  </body>
+</html>

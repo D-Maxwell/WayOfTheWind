@@ -1,0 +1,197 @@
+html{
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+body{
+  --backdrop: none;
+  --backdrop-opacity: 0;
+  background-color: #1d1f21;
+  color: white;
+  font-family: bahnschrift;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+}
+body::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: var(--backdrop-opacity);
+  background-image: var(--backdrop);
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(8px) brightness(.85);
+  animation: back-and-forth 60s alternate cubic-bezier(0.37, 0, 0.63, 1) infinite;
+  transition: filter 250ms, background-image 250ms, opacity 250ms;
+}
+
+@keyframes back-and-forth {
+  from{
+    background-position-x: left;
+  }
+  to{
+    background-position-x: right;
+  }
+}
+
+*{
+  position: relative;
+  box-sizing: border-box;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+input[type="radio"]:not(:focus-visible){
+  outline: none;
+}
+input[type="radio"]{
+  appearance: unset;
+  margin: 0;
+  height: 100%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  z-index: 1;
+}
+
+.flex{
+  display: flex;
+}
+.flex div{
+  display: flex;
+  width: fit-content;
+}
+
+
+nav img{
+  transition: filter 100ms;
+}
+nav img:hover{
+  filter: brightness(1.25);
+}
+
+
+
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10vh;
+}
+
+
+
+.platform-selector{
+  box-sizing: content-box;
+
+  --height: 48px;
+  height: var(--height);
+  width: fit-content;
+  --gap: 8px;
+  gap: var(--gap);
+  --pos: 0px;
+
+  /* border: 2px solid rgb(48,48,48); */
+  /* padding: 0 var(--gap); */
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+.platform-selector::after{
+  --size: 2px;
+  content: '';
+  position: absolute;
+  /* bottom: calc(-1/2 * var(--gap)); */
+  /* bottom: calc(-1 * var(--size)); */
+  bottom: 0;
+  left: var(--pos);
+  width: var(--height);
+  height: var(--size);
+  background-color: white;
+
+  transition: left 250ms;
+}
+
+.platform-selector div{
+  height: 100%;
+  aspect-ratio: 1/1;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0,0,0,0.25);
+
+  transition: filter 100ms, background-color 250ms;
+}
+.platform-selector div:hover{
+  filter: brightness(1.2);
+}
+
+.icon{
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* .platform-selector > div:has(input:checked)::after{
+  content: '';
+  position: absolute;
+  bottom: calc(-1/2 * var(--gap));
+  width: 100%;
+  height: 2px;
+  background-color: white;
+} */
+
+
+.games{
+  width: 75%;
+  border-radius: 1em;
+  /* border: 2px white solid;* */
+  overflow: hidden;
+}
+
+.games > div{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 1em;
+}
+
+.games > div > div{
+  aspect-ratio: 1/1;
+  background-color: rgb(48,48,48, 0.25);
+  backdrop-filter: blur(4px) brightness(0.8);
+  padding: 16%;
+
+  transition: filter 250ms;
+}
+.games > div > div:has(.icon){
+  cursor: pointer;
+}
+
+.games > div > div:hover{
+  backdrop-filter: blur(8px);
+  filter: brightness(1.25);
+}
+
+.games > div > div > .icon{
+  transition: scale 250ms;
+}
+.games > div > div:hover > .icon{
+  scale: .95;
+}
+
+
+body:has(.wrapper > .games > div > div:hover)::before{
+  filter: blur(0px) brightness(1);
+}
+
+
+
+
+.platform-selector > div:has(input:checked){
+  background-color: rgba(255,255,255,0.25);
+}
