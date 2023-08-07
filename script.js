@@ -1,4 +1,6 @@
-//$('.selector > div').append(`<input type="radio" name="${$(this).parent().attr('id')}" ${$(this).checked() ? "checked" : ""} />`);
+$('.selector > div').each(function(){
+  $(this).append(`<input type="radio" name="${$(this).parent().attr('id')}" ${$(this).attr('checked') ? "checked" : ""} />`);
+})
 
 
 $('.platform-selector > div').append('<div class="icon"></div>');
