@@ -118,10 +118,10 @@ nav:hover{
   transition: left 250ms;
 }
 
-.platform-selector div{
+.platform-selector > div{
   height: 100%;
   aspect-ratio: 1/1;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   background-color: rgba(0,0,0,0.25);
 
   transition: filter 100ms, background-color 250ms;
