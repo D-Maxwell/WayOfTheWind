@@ -68,10 +68,10 @@ input[type="radio"]{
 }
 
 
-nav img{
+nav{
   transition: filter 100ms;
 }
-nav img:hover{
+nav:hover{
   filter: brightness(1.25);
 }
 

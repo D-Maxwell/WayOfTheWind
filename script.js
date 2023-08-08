@@ -1,5 +1,12 @@
+$('.games > div').css('display','none');
+
 $('.selector > div').each(function(){
   $(this).append(`<input type="radio" name="${$(this).parent().attr('id')}" ${$(this).attr('checked') ? "checked" : ""} />`);
+
+  if ($(this).attr('checked')) {
+    console.log($(this).index());
+    $(`.games > div:nth-child(${$(this).index()+1})`).css('display','');
+  }
 })
 
 
@@ -28,6 +35,9 @@ function flow(e){
   $('.games>#' + platform.attr('id')).css('display','');
 
 }
+$('.selector').each(function(){
+  flow($(this));
+})
 
 
 
