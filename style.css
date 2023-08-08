@@ -140,6 +140,7 @@ nav:hover{
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  background-origin: content-box;
 }
 
 /* .platform-selector > div:has(input:checked)::after{
@@ -169,9 +170,8 @@ nav:hover{
   aspect-ratio: 1/1;
   background-color: rgb(48,48,48, 0.25);
   backdrop-filter: blur(4px) brightness(0.8);
-  padding: 16%;
 
-  transition: filter 250ms;
+  transition: filter 250ms, aspect-ratio 250ms;
 }
 .games > div > div:has(.icon){
   cursor: pointer;
@@ -184,6 +184,7 @@ nav:hover{
 
 .games > div > div > .icon{
   transition: scale 250ms;
+  padding: 16%;
 }
 .games > div > div:hover > .icon{
   scale: .95;
@@ -203,3 +204,9 @@ body:has(.wrapper > .games > div > div:hover)::before{
 /* .platform-selector > div:has(input:checked) > .icon{
   translate: 0 calc(-1 * var(--size));
 } */
+
+
+
+.games > div > div:focus-within{
+  aspect-ratio: 1/2;
+}

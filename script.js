@@ -57,3 +57,8 @@ function fond(e){
   $('body').css('--backdrop', `url("assets/backdrops/${game}.png")`);
 
 }
+
+
+
+
+$('.tabbable > *').attr('tabindex',"0");
