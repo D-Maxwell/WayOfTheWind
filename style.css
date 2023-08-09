@@ -3,12 +3,16 @@ html{
   scroll-behavior: smooth;
 }
 
+*{
+  color: white;
+  font-family: bahnschrift;
+}
+
 body{
   --backdrop: none;
   --backdrop-opacity: 0;
-  background-color: #1d1f21;
-  color: white;
-  font-family: bahnschrift;
+  --background-color: 29,31,33;
+  background-color: rgb(var(--background-color));
   padding: 0;
   margin: 0;
   min-height: 100vh;
@@ -170,8 +174,13 @@ nav:hover{
   aspect-ratio: 1/1;
   background-color: rgb(48,48,48, 0.25);
   backdrop-filter: blur(4px) brightness(0.8);
+  overflow: hidden;
 
   transition: filter 250ms, aspect-ratio 250ms;
+}
+.games > div > div:focus-visible{
+  outline: none;
+  border: 2px solid white;
 }
 .games > div > div:has(.icon){
   cursor: pointer;
@@ -209,4 +218,44 @@ body:has(.wrapper > .games > div > div:hover)::before{
 
 .games > div > div:focus-within{
   aspect-ratio: 1/2;
+}
+
+.games > div > div > .content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10%;
+  gap: calc(0.1 * 75vw / 6);
+  /* overflow: hidden; */
+  aspect-ratio: 1/1;
+}
+
+.games > div > div > .content > button{
+  all: unset;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(48,48,48,0.5);
+  border-radius: 0.5em;
+  backdrop-filter: blur(8px);
+
+  transition: background-color 150ms;
+}
+.games > div > div > .content > button:hover{
+  background-color: rgba(64,64,64,0.25);
+}
+
+.games > div > div > .content > button > *{
+  padding: 6%;
+  box-sizing: content-box;
+}
+
+.games > div > div > .content > button > .icon{
+  height: 2em;
+}
+
+.games > div > div > .content > button > span{
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  font-size: 1.25em;
 }

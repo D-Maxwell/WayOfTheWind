@@ -20,6 +20,28 @@ $('.games > div > div').each(function(){
   $(this).find('.icon').css('background-image', `url("assets/games/${$(this).attr('id')}.png")`);
 })
 
+$('.games > div').addClass('tabbable');
+$('.tabbable > *').attr('tabindex',"0");
+
+
+$('.games > div > div').append(`
+  <div class="content">
+    <button id="yuzu" type="button"><div class="icon"></div><span>Yuzu</span></button>
+    <button id="ryujinx" type="button"><div class="icon"></div><span>Ryujinx</span></button>
+  </div>
+`);
+
+$('.games > div > div > .content > button > .icon').each(function(){
+  console.log($(this).parent().attr('id'));
+  $(this).css('background-image', `url("assets/emulators/${$(this).parent().attr('id')}.png")`);
+})
+
+// dynamic path attempt
+// $('.icon').each(function(){
+//   $(this).css('background-image', `assets/${}`)
+// })
+
+
 
 function preload(path){
   let cached = new Image();
@@ -66,8 +88,3 @@ function fond(e){
   $('body').css('--backdrop', `url("assets/backdrops/${game}.png")`);
 
 }
-
-
-
-$('.games > div').addClass('tabbable');
-$('.tabbable > *').attr('tabindex',"0");
