@@ -4,7 +4,6 @@ $('.selector > div').each(function(){
   $(this).append(`<input type="radio" name="${$(this).parent().attr('id')}" ${$(this).attr('checked') ? "checked" : ""} />`);
 
   if ($(this).attr('checked')) {
-    console.log($(this).index());
     $(`.games > div:nth-child(${$(this).index()+1})`).css('display','');
   }
 })
@@ -22,6 +21,13 @@ $('.games > div > div').each(function(){
 })
 
 
+function preload(path){
+  let cached = new Image();
+  cached.src = path;
+  return cached;
+}
+
+
 function flow(e){
   platform = $('input[name="platform"][type="radio"]:checked').parent();
   val = platform.index();
@@ -33,6 +39,10 @@ function flow(e){
   $('.games>div').css('display','none');
 
   $('.games>#' + platform.attr('id')).css('display','');
+
+  $(`.games > #${platform.attr('id')} > div`).each(function(){
+    preload(`assets/backdrops/${$(this).attr('id')}.png`);
+  })
 
 }
 $('.selector').each(function(){
@@ -47,8 +57,7 @@ function fond(e){
   game = $(e).attr('id');
 
 
-  img = new Image();
-  img.src = `assets/backdrops/${game}.png`;
+  img = preload(`assets/backdrops/${game}.png`);
   if (img.height == 0) {
     $('body').css('--backdrop-opacity', `0`);
     return;
@@ -60,12 +69,5 @@ function fond(e){
 
 
 
-
+$('.games > div').addClass('tabbable');
 $('.tabbable > *').attr('tabindex',"0");
-
-
-
-$('.games > div > div').each(function(){
-  let cached = new Image();
-  cached.src = `assets/backdrops/${$(this).attr('id')}.png`;
-})
