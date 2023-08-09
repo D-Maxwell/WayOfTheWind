@@ -62,3 +62,10 @@ function fond(e){
 
 
 $('.tabbable > *').attr('tabindex',"0");
+
+
+
+$('.games > div > div').each(function(){
+  let cached = new Image();
+  cached.src = `assets/backdrops/${$(this).attr('id')}.png`;
+})
