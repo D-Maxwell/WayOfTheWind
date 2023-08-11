@@ -60,7 +60,7 @@ input[type="radio"]:not(:focus-visible){
 input[type="radio"]{
   margin: 0;
   height: 100%;
-  aspect-ratio: 1/1;
+  width: 100%;
   position: absolute;
   top: 0;
   z-index: 1;
@@ -232,6 +232,7 @@ body:has(.wrapper > .games > div > div:hover)::before{
   gap: calc(0.1 * 75vw / 6);
   /* overflow: hidden; */
   aspect-ratio: 1/1;
+  z-index: 1;
 }
 
 .games > div > div > .content > button{
