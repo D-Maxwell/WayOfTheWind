@@ -51,15 +51,18 @@ ul{
   padding: 0;
   margin: 0;
 }
+input{
+  all: unset;
+}
 input[type="radio"]:not(:focus-visible){
   outline: none;
 }
 input[type="radio"]{
-  appearance: unset;
   margin: 0;
   height: 100%;
   aspect-ratio: 1/1;
   position: absolute;
+  top: 0;
   z-index: 1;
 }
 
@@ -130,7 +133,7 @@ nav:hover{
 
   transition: filter 100ms, background-color 250ms;
 }
-.platform-selector div:hover{
+.platform-selector div:is(:hover,:focus-within){
   filter: brightness(1.2);
 }
 
@@ -178,15 +181,16 @@ nav:hover{
 
   transition: filter 250ms, aspect-ratio 250ms;
 }
-.games > div > div:focus-visible{
+.games > div > div:focus-visible, .games > div > div > .content > button:focus-visible{
   outline: none;
-  border: 2px solid white;
+  /* border: 2px solid white; */
+  /* ^^^ resizes elements despite box sizing border box ^^^ */
 }
 .games > div > div:has(.icon){
   cursor: pointer;
 }
 
-.games > div > div:hover{
+.games > div > div:is(:hover,:focus-visible,:focus-within){
   backdrop-filter: blur(8px);
   filter: brightness(1.25);
 }
@@ -195,7 +199,7 @@ nav:hover{
   transition: scale 250ms;
   padding: 16%;
 }
-.games > div > div:hover > .icon{
+.games > div > div:is(:hover,:focus-visible,:focus-within) > .icon{
   scale: .95;
 }
 
@@ -216,7 +220,7 @@ body:has(.wrapper > .games > div > div:hover)::before{
 
 
 
-.games > div > div:focus-within{
+.games > div > div:is(:focus-within,:focus-visible){
   aspect-ratio: 1/2;
 }
 
@@ -240,7 +244,7 @@ body:has(.wrapper > .games > div > div:hover)::before{
 
   transition: background-color 150ms;
 }
-.games > div > div > .content > button:hover{
+.games > div > div > .content > button:is(:hover,:focus-visible){
   background-color: rgba(64,64,64,0.25);
 }
 

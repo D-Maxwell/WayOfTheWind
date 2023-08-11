@@ -20,8 +20,15 @@ $('.games > div > div').each(function(){
   $(this).find('.icon').css('background-image', `url("assets/games/${$(this).attr('id')}.png")`);
 })
 
-$('.games > div').addClass('tabbable');
-$('.tabbable > *').attr('tabindex',"0");
+// $('.games > div').addClass('tabbable');
+
+// dirty, bad dobby, bad
+$('.games > div > div').each(function(){
+  $(this).append(`<input type="radio" name="${$(this).parent().attr('id')}" tabindex="0" />`);
+})
+
+
+// $('.tabbable > *').attr('tabindex',"0");
 
 
 $('.games > div > div').append(`
@@ -73,7 +80,10 @@ $('.selector').each(function(){
 
 
 
-$('.games > div > div').attr('onmouseover','fond(this)');
+$('.games > div > div').each(function(){
+  $(this).attr('onmouseover','fond(this)')
+  $(this).find('input').attr('onfocus','fond($(this).parent())');
+})
 
 function fond(e){
   game = $(e).attr('id');
