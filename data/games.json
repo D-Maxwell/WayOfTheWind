@@ -1,0 +1,123 @@
+{
+  "platforms":{
+
+
+    "switch":{
+
+      "totk":{
+        "title":"Tears of the Kingdom",
+        "series":"The Legend of Zelda",
+        "releaseDate":0,
+        "genres":["Open World","Sandbox","Exploration","Adventure"],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
+      },
+      "mk8dx":{
+        "title":"Mario Kart 8 Deluxe",
+        "series":"Mario Kart",
+        "releaseDate":0,
+        "genres":[],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
+      },
+      "splat2":{
+        "title":"Splatoon 2",
+        "series":"Splatoon",
+        "releaseDate":0,
+        "genres":[],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
+      },
+      "smash5":{
+        "title":"Smash Bros Ultimate",
+        "series":"Super Smash Bros",
+        "releaseDate":0,
+        "genres":[],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
+      }
+
+    },
+
+
+    "wii-u":{
+
+      "botw":{
+        "title":"Breath of the Wild",
+        "series":"The Legend of Zelda",
+        "releaseDate":0,
+        "genres":[],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
+      },
+      "mk8":{
+        "title":"Mario Kart 8",
+        "series":"Mario Kart",
+        "releaseDate":0,
+        "genres":[],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
+      },
+      "splat":{
+        "title":"Splatoon",
+        "series":"Splatoon",
+        "releaseDate":0,
+        "genres":[],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
+      },
+      "sm4sh":{
+        "title":"Smash Bros for Wii U",
+        "series":"Super Smash Bros",
+        "releaseDate":0,
+        "genres":[],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
+      }
+
+    },
+
+
+    "wii":{
+
+      "tphd":{
+        "title":"Twilight Princess HD",
+        "series":"The Legend of Zelda",
+        "releaseDate":0,
+        "genres":[],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
+      },
+      "mkwii":{
+        "title":"Mario Kart Wii",
+        "series":"Mario Kart",
+        "releaseDate":0,
+        "genres":[],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
+      }
+
+    }
+
+  }
+}

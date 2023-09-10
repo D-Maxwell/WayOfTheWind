@@ -16,6 +16,8 @@ body{
   padding: 0;
   margin: 0;
   min-height: 100vh;
+  /* font-size: calc(sqrt(pow(1vw,2) + pow(1vh,2)) * 1em); */
+  font-size: 2vmin;
 }
 body::before{
   content: '';
@@ -69,7 +71,7 @@ input[type="radio"]{
 .flex{
   display: flex;
 }
-.flex div{
+.flex div:has(*){
   display: flex;
   width: fit-content;
 }
@@ -90,6 +92,8 @@ nav:hover{
   flex-direction: column;
   align-items: center;
   gap: 10vh;
+  padding: 4rem;
+  z-index: 1;
 }
 
 
@@ -162,6 +166,8 @@ nav:hover{
 
 .games{
   width: 75%;
+  aspect-ratio: 2/1;
+  /* margin-bottom: 10%; */
   border-radius: 1em;
   /* border: 2px white solid;* */
   overflow: hidden;
@@ -170,7 +176,9 @@ nav:hover{
 .games > div{
   display: grid;
   grid-template-columns: repeat(6,1fr);
+  grid-template-rows: auto 1fr;
   gap: 1em;
+  height: 100%;
 }
 
 .games > div > div{
@@ -178,9 +186,76 @@ nav:hover{
   background-color: rgb(48,48,48, 0.25);
   backdrop-filter: blur(4px) brightness(0.8);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 4%;
 
   transition: filter 250ms, aspect-ratio 250ms;
 }
+
+.games > div > div > .info{
+  display: flex;
+  flex-direction: column;
+  /* flex-grow: 1; */
+  /* width: 100%; */
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+
+  & > .icon{
+    /* justify-self: start; */
+    margin: 4% 0;
+    background-position-x: left;
+    /* width: fit-content; */
+  }
+
+  & > #chips{
+    display: flex;
+    flex-direction: row;
+    border-radius: 0.5em;
+    /* padding: 1em 2em; */
+    overflow: hidden;
+    gap: 2px;
+    /* flex-basis: auto; */
+    justify-content: center;
+    /* height: 2.5em; */
+
+    & > div{
+      --height: calc(1cqw - 4%);
+      /* background-color: rgba(48,48,48,0.25); */
+      backdrop-filter: blur(4px);
+      /* border-radius: 0; */
+      padding: 6%;
+      white-space: nowrap;
+      flex: 1 1 auto;
+      font-size: var(--height);
+      height: var(--height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      container-type: size;
+    }
+
+    width: 100%;
+  }
+}
+
+/* @container {
+  #chips > div{
+    font-size: 2cqh;
+  }
+} */
+
+
+.games > div > div > .info > .icon{
+  /* justify-self: start; */
+  aspect-ratio: unset;
+  /* height: 100%; */
+  flex-grow: 1;
+  width: 100%;
+}
+
+
 .games > div > div:focus-visible, .games > div > div > .content > button:focus-visible{
   outline: none;
   /* border: 2px solid white; */
@@ -194,13 +269,25 @@ nav:hover{
   backdrop-filter: blur(8px);
   filter: brightness(1.25);
 }
+.games > div > div:focus-within{
+  padding: 4%;
+}
 
 .games > div > div > .icon{
   transition: scale 250ms;
   padding: 16%;
+  height: 100%;
+  /* width: unset; */
 }
-.games > div > div:is(:hover,:focus-visible,:focus-within) > .icon{
+.games > div > div:is(:hover,:focus-visible) > .icon{
   scale: .95;
+}
+.games > div > div:focus-within > div{
+  flex-basis: 100%;
+  height: 100%;
+}
+.games > div > div:focus-within > .icon{
+  padding: 0;
 }
 
 
@@ -221,18 +308,25 @@ body:has(.wrapper > .games > div > div:hover)::before{
 
 
 .games > div > div:is(:focus-within,:focus-visible){
-  aspect-ratio: 1/2;
+  aspect-ratio: unset;
+  grid-row: 2;
+  grid-column: 1/-1;
+  height: 100%;
 }
+/* .games > div > div:is(:focus-within,:focus-visible) ~ div{
+  visibility: hidden;
+} */
 
 .games > div > div > .content{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 10%;
+  /* flex-grow: 1; */
+  /* margin: 10%; */
   gap: calc(0.1 * 75vw / 6);
   /* overflow: hidden; */
-  aspect-ratio: 1/1;
   z-index: 1;
+  /* width: 100%; */
 }
 
 .games > div > div > .content > button{
@@ -242,12 +336,25 @@ body:has(.wrapper > .games > div > div:hover)::before{
   background-color: rgba(48,48,48,0.5);
   border-radius: 0.5em;
   backdrop-filter: blur(8px);
-
   transition: background-color 150ms;
+
+  /* &:hover > .icon{
+    --stroke: 1px;
+    filter: drop-shadow(var(--stroke) 0 0 white)
+        drop-shadow(0 var(--stroke) 0 white)
+        drop-shadow(calc(-1 * var(--stroke)) 0 0 white)
+        drop-shadow(0 calc(-1 * var(--stroke)) 0 white);
+  } */
+  &:is(:hover, :focus-visible){
+    background-color: rgba(var(--color), 0.25);
+  }
+;
+  flex-grow: 0;
+  min-width: min-content;
 }
-.games > div > div > .content > button:is(:hover,:focus-visible){
+/* .games > div > div > .content > button:is(:hover,:focus-visible){
   background-color: rgba(64,64,64,0.25);
-}
+} */
 
 .games > div > div > .content > button > *{
   padding: 6%;
@@ -259,8 +366,8 @@ body:has(.wrapper > .games > div > div:hover)::before{
 }
 
 .games > div > div > .content > button > span{
-  flex-grow: 1;
+  /* flex-grow: 1; */
   display: flex;
   align-items: center;
-  font-size: 1.25em;
+  font-size: 1.1em;
 }

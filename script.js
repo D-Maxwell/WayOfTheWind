@@ -1,3 +1,9 @@
+// function diagonalFontSize(CascadeEntryPoint) {
+//   CascadeEntryPoint.css('font-size', (visualViewport.width**2 + visualViewport.height**2)**(1/2) / 100);
+// }
+// $('body').css('font-size', (visualViewport.width**2 + visualViewport.height**2)**(1/2) / 100);
+
+
 $('.games > div').css('display','none');
 
 $('.selector > div').each(function(){
@@ -32,14 +38,32 @@ $('.games > div > div').each(function(){
 
 
 $('.games > div > div').append(`
+  <div class="info">
+    <h2 class="icon"></h2>
+    <div id="chips">
+      <div>Release Date</div>
+      <div>Genre ?</div>
+      <div>Hello there</div>
+    </div>
+    <!-- row of buttons TBI -->
+  </div>
   <div class="content">
     <button id="yuzu" type="button"><div class="icon"></div><span>Yuzu</span></button>
     <button id="ryujinx" type="button"><div class="icon"></div><span>Ryujinx</span></button>
   </div>
 `);
 
+$('.games > div > div').each(function(){
+  $(this).find('.info > h2.icon').css('background-image',`url("assets/titles/${$(this).attr('id')}.png")`);
+})
+
+
+$('.games > div > div > .content > button').each(function(idx){
+  $(this).css('--color',['0,0,255','255,0,0'][idx%2]);
+})
+
 $('.games > div > div > .content > button > .icon').each(function(){
-  console.log($(this).parent().attr('id'));
+  // console.log($(this).parent().attr('id'));
   $(this).css('background-image', `url("assets/emulators/${$(this).parent().attr('id')}.png")`);
 })
 
