@@ -10,7 +10,7 @@ html{
 
 body{
   --backdrop: none;
-  --backdrop-opacity: 0;
+  --backdrop-opacity: 1;
   --background-color: 29,31,33;
   background-color: rgb(var(--background-color));
   padding: 0;
@@ -43,6 +43,7 @@ body::before{
   }
 }
 
+
 *{
   position: relative;
   box-sizing: border-box;
@@ -53,8 +54,17 @@ ul{
   padding: 0;
   margin: 0;
 }
-input{
+input,button{
   all: unset;
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+}
+button{
+  background-color: rgba(0,0,0,0.25);
+  padding: 1em;
+  gap: 1em;
+  border-radius: 1em;
 }
 input[type="radio"]:not(:focus-visible){
   outline: none;
@@ -65,6 +75,7 @@ input[type="radio"]{
   width: 100%;
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 1;
 }
 
@@ -101,10 +112,10 @@ nav:hover{
 .platform-selector{
   box-sizing: content-box;
 
-  --height: calc(48px * 1.10);
+  --height: 6vmin;
   height: var(--height);
   width: fit-content;
-  --gap: 8px;
+  --gap: calc(var(--height) / 6);
   gap: var(--gap);
   --pos: 0px;
 
@@ -164,24 +175,31 @@ nav:hover{
 } */
 
 
-.games{
-  width: 75%;
-  aspect-ratio: 2/1;
+.gimmeaname{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#games{
+  max-width: 100%;
+  width: fit-content;
+  height: 10vw;
+  /* aspect-ratio: 2/1; */
   /* margin-bottom: 10%; */
   border-radius: 1em;
   /* border: 2px white solid;* */
   overflow: hidden;
 }
 
-.games > div{
-  display: grid;
-  grid-template-columns: repeat(6,1fr);
-  grid-template-rows: auto 1fr;
+#games > div{
+  display: flex;
   gap: 1em;
   height: 100%;
 }
 
-.games > div > div{
+#games > div > div{
   aspect-ratio: 1/1;
   background-color: rgb(48,48,48, 0.25);
   backdrop-filter: blur(4px) brightness(0.8);
@@ -189,43 +207,44 @@ nav:hover{
   display: flex;
   align-items: center;
   gap: 4%;
+  height: 100%;
 
   transition: filter 250ms, aspect-ratio 250ms;
 }
 
-.games > div > div > .info{
+/* #preview > .info{
   display: flex;
   flex-direction: column;
   /* flex-grow: 1; */
   /* width: 100%; */
-  overflow: hidden;
+  /* overflow: hidden;
   justify-content: center;
   align-items: center;
 
   & > .icon{
     /* justify-self: start; */
-    margin: 4% 0;
-    background-position-x: left;
+    /* margin: 4% 0; */
+    /* background-position-x: left; */
     /* width: fit-content; */
-  }
+  /* } */
 
-  & > #chips{
+  /* & > #chips{
     display: flex;
     flex-direction: row;
-    border-radius: 0.5em;
+    border-radius: 0.5em; */
     /* padding: 1em 2em; */
-    overflow: hidden;
+    /* overflow: hidden;
     gap: 2px;
     /* flex-basis: auto; */
-    justify-content: center;
+    /* justify-content: center; */
     /* height: 2.5em; */
-
+/*
     & > div{
-      --height: calc(1cqw - 4%);
+      --height: calc(1cqw - 4%); */
       /* background-color: rgba(48,48,48,0.25); */
-      backdrop-filter: blur(4px);
+      /* backdrop-filter: blur(4px); */
       /* border-radius: 0; */
-      padding: 6%;
+      /* padding: 6%;
       white-space: nowrap;
       flex: 1 1 auto;
       font-size: var(--height);
@@ -236,9 +255,9 @@ nav:hover{
       container-type: size;
     }
 
-    width: 100%;
-  }
-}
+    width: 100%; */
+  /* } */
+/* } */
 
 /* @container {
   #chips > div{
@@ -247,51 +266,51 @@ nav:hover{
 } */
 
 
-.games > div > div > .info > .icon{
+/* #preview > .info > .icon{
   /* justify-self: start; */
-  aspect-ratio: unset;
+  /* aspect-ratio: unset; */
   /* height: 100%; */
-  flex-grow: 1;
-  width: 100%;
-}
+  /* flex-grow: 1;
+  width: 100%; */
+/* } */
 
 
-.games > div > div:focus-visible, .games > div > div > .content > button:focus-visible{
+#preview:focus-visible, #preview > .content > button:focus-visible{
   outline: none;
   /* border: 2px solid white; */
   /* ^^^ resizes elements despite box sizing border box ^^^ */
 }
-.games > div > div:has(.icon){
+:is(#games > div > div, #preview):has(.icon){
   cursor: pointer;
 }
 
-.games > div > div:is(:hover,:focus-visible,:focus-within){
+:is(#games > div > div, #preview):is(:hover,:focus-visible,:focus-within,:has(input:checked)),#preview{
   backdrop-filter: blur(8px);
   filter: brightness(1.25);
 }
-.games > div > div:focus-within{
+/* #preview:focus-within{
   padding: 4%;
-}
+} */
 
-.games > div > div > .icon{
+#games > div > div > .icon{
   transition: scale 250ms;
   padding: 16%;
   height: 100%;
   /* width: unset; */
 }
-.games > div > div:is(:hover,:focus-visible) > .icon{
+#games > div > div:is(:hover,:focus-visible) > .icon{
   scale: .95;
 }
-.games > div > div:focus-within > div{
+/* #preview:focus-within > div{
   flex-basis: 100%;
   height: 100%;
 }
-.games > div > div:focus-within > .icon{
+#preview:focus-within > .icon{
   padding: 0;
-}
+} */
 
 
-body:has(.wrapper > .games > div > div:hover)::before{
+body:has(.wrapper > .gimmeaname > div:hover)::before{
   filter: blur(0px) brightness(1);
 }
 
@@ -307,29 +326,29 @@ body:has(.wrapper > .games > div > div:hover)::before{
 
 
 
-.games > div > div:is(:focus-within,:focus-visible){
+/* #preview:is(:focus-within,:focus-visible){
   aspect-ratio: unset;
   grid-row: 2;
   grid-column: 1/-1;
   height: 100%;
-}
-/* .games > div > div:is(:focus-within,:focus-visible) ~ div{
+} */
+/* #preview:is(:focus-within,:focus-visible) ~ div{
   visibility: hidden;
 } */
 
-.games > div > div > .content{
+/* #preview > .content{
   display: flex;
   justify-content: center;
   flex-direction: column;
   /* flex-grow: 1; */
   /* margin: 10%; */
-  gap: calc(0.1 * 75vw / 6);
+  /* gap: calc(0.1 * 75vw / 6); */
   /* overflow: hidden; */
-  z-index: 1;
+  /* z-index: 1; */
   /* width: 100%; */
-}
+/* } */
 
-.games > div > div > .content > button{
+/* #preview > .content > button{
   all: unset;
   display: flex;
   flex-direction: row;
@@ -337,6 +356,8 @@ body:has(.wrapper > .games > div > div:hover)::before{
   border-radius: 0.5em;
   backdrop-filter: blur(8px);
   transition: background-color 150ms;
+  flex-grow: 0;
+  min-width: min-content;
 
   /* &:hover > .icon{
     --stroke: 1px;
@@ -345,29 +366,122 @@ body:has(.wrapper > .games > div > div:hover)::before{
         drop-shadow(calc(-1 * var(--stroke)) 0 0 white)
         drop-shadow(0 calc(-1 * var(--stroke)) 0 white);
   } */
-  &:is(:hover, :focus-visible){
+  /* &:is(:hover, :focus-visible){
     background-color: rgba(var(--color), 0.25);
-  }
-;
-  flex-grow: 0;
-  min-width: min-content;
-}
-/* .games > div > div > .content > button:is(:hover,:focus-visible){
+  } */
+
+/* } */
+/* #preview > .content > button:is(:hover,:focus-visible){
   background-color: rgba(64,64,64,0.25);
 } */
 
-.games > div > div > .content > button > *{
+/* #preview > .content > button > *{
   padding: 6%;
   box-sizing: content-box;
 }
 
-.games > div > div > .content > button > .icon{
+#preview > .content > button > .icon{
   height: 2em;
 }
 
-.games > div > div > .content > button > span{
+#preview > .content > button > span{
   /* flex-grow: 1; */
-  display: flex;
+  /* display: flex;
   align-items: center;
-  font-size: 1.1em;
+  font-size: 1.1em; */
+/* } */
+
+
+
+
+
+
+
+#preview{
+  display: flex;
+  height: 20em;
+  background-color: rgba(48,48,48,0.25);
+  /* backdrop-filter: blur(4px) brightness(0.8); */
+  border-radius: 1em;
+
+  transition: filter 250ms, aspect-ratio 250ms, height 250ms;
+
+  &[data-game=""]{
+    height: 0;
+  }
+
+  & > *{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* flex-grow: 1; */
+  }
+  & > .spacer{
+    flex-grow: 1;
+  }
+
+  & > .info{
+    aspect-ratio: unset;
+    min-width: 50%;
+    padding: 1em;
+
+    & > *{
+      width: 100%;
+    }
+
+    & > .icon{
+      flex-grow: 1;
+      aspect-ratio: unset;
+      height: 100%;
+      margin: 0;
+      padding: 2em;
+    }
+
+    & > .chips{
+      display: flex;
+      gap: 0.5ch;
+      border-radius: 1ch;
+      overflow: hidden;
+      width: fit-content;
+      align-items: center;
+
+      & > *{
+        background-color: rgba(0,0,0,0.25);
+        padding: 1ch 1em;
+      }
+
+    }
+
+  }
+
+  & > .tabs{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    border-radius: 1em;
+    /* background-color: rgba(0,0,0,0.25); */
+    overflow: hidden;
+
+    & > div{
+      /* border-radius: 0; */
+      background-color: transparent;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1em;
+      border-radius: 1em;
+
+      &:has(input:checked){
+        backdrop-filter: blur(4px);
+      }
+
+      & > .icon{
+        width: 1em;
+      }
+
+    }
+
+  }
+
 }

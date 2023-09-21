@@ -1,6 +1,10 @@
-{
-  "platforms":{
+var emulators = JSON.parse(`{
+  "switch":["ryujinx","yuzu"],
+  "wii-u":["cemu"],
+  "wii":["dolphin"]
+}`)
 
+var games = JSON.parse(`{
 
     "switch":{
 
@@ -119,5 +123,4 @@
 
     }
 
-  }
-}
+}`)
