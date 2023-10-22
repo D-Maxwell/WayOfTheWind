@@ -25,7 +25,7 @@
         $('#games>#' + platform.attr('id')).css('display','').removeAttr('disabled');
 
 
-        $('#preview > .tabs > button').remove();
+        $('#preview > .tabs > div').remove();
         for (let emulator of emulators[platform.attr('id')]){
           let path = `assets/emulators/${emulator}.png`;
           $('#preview > .tabs').append(`
