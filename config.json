@@ -1,0 +1,4 @@
+var config = JSON.parse(`{
+  image_extension:"png",
+  resources_path:"assets"
+}`)

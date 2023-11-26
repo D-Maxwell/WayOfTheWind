@@ -1,0 +1,22 @@
+tabbable {
+
+  & > .tabs {
+
+    display: flex;
+
+
+    & > * {
+      border-radius: unset;
+    }
+
+    & > *:last-child {
+      border-bottom-right-radius: inherit;
+    }
+
+    & > *:first-child {
+      border-bottom-left-radius: inherit;
+    }
+
+  }
+
+}

@@ -1,27 +1,48 @@
+
+function prettifyString(text) {
+  out = ['']
+  for (let char of text.toString()) {
+
+    out[out.length-1] += char
+    if (out[out.length-1].length == 1) {
+      out[out.length-1] = char.toUpperCase()
+    }
+
+    if (char == ' ') {
+      out.push('')
+    }
+
+  }
+
+  return out.join('')
+}
+
+
+
 // function diagonalFontSize(CascadeEntryPoint) {
 //   CascadeEntryPoint.css('font-size', (visualViewport.width**2 + visualViewport.height**2)**(1/2) / 100);
 // }
 // $('body').css('font-size', (visualViewport.width**2 + visualViewport.height**2)**(1/2) / 100);
 
 
-$('#games > div').css('display','none');
+// $('#games > div').css('display','none');
 
-$('.selector > div').each(function(){
-  $(this).append(`<input type="radio" name="${$(this).parent().attr('id')}" ${$(this).attr('checked') ? "checked" : ""} />`);
+// $('.selector > div').each(function(){
+//   $(this).append(`<input type="radio" name="${$(this).parent().attr('id')}" ${$(this).attr('checked') ? "checked" : ""} />`);
+//
+//   // if ($(this).attr('checked')) {
+//   //   $(`#games > div:nth-child(${$(this).index()+1})`).css('display','');
+//   // }
+// })
 
-  if ($(this).attr('checked')) {
-    $(`#games > div:nth-child(${$(this).index()+1})`).css('display','');
-  }
-})
 
-
-$('.platform-selector > div').append('<div class="icon"></div>');
+$('.platform-selector > div').append('<i class="icon"></i>');
 
 $('.platform-selector > div > .icon').each(function(){
   $(this).css('background-image', `url("assets/platforms/${$(this).parent().attr('id')}.png")`);
 })
 
-$('#games > div > div').append('<div class="icon"></div>');
+$('#games > div > div').append('<i class="icon"></i>');
 $('#games > div > div').each(function(){
   $(this).find('.icon').css('background-image', `url("assets/games/${$(this).attr('id')}.png")`);
 })

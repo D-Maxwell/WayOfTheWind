@@ -47,6 +47,7 @@ body::before{
 *{
   position: relative;
   box-sizing: border-box;
+  min-width: 0; min-height: 0;
 }
 
 ul{
@@ -54,17 +55,34 @@ ul{
   padding: 0;
   margin: 0;
 }
-input,button{
+input, button{
   all: unset;
   display: flex;
   width: fit-content;
   height: fit-content;
 }
-button{
+:is(button, .button){
   background-color: rgba(0,0,0,0.25);
-  padding: 1em;
+  padding: 0.5em;
   gap: 1em;
-  border-radius: 1em;
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(4px) brightness(0.8);
+  box-sizing: border-box;
+  cursor: pointer;
+
+  transition: filter 250ms;
+
+  &:hover{
+    backdrop-filter: blur(8px);
+    filter: brightness(1.25);
+  }
+
+  & * {
+    pointer-events: none;
+  }
+
 }
 input[type="radio"]:not(:focus-visible){
   outline: none;
@@ -112,7 +130,6 @@ nav:hover{
 .platform-selector{
   box-sizing: content-box;
 
-  --height: 6vmin;
   height: var(--height);
   width: fit-content;
   --gap: calc(var(--height) / 6);
@@ -152,17 +169,18 @@ nav:hover{
   filter: brightness(1.2);
 }
 
-.platform-selector > div > .icon{
+.platform-selector > div > :is(icon, .icon){
   padding: 10%;
   background-origin: content-box;
 }
 
-.icon{
+:is(icon, .icon){
   aspect-ratio: 1/1;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   background-origin: content-box;
+  height: 100%;
 }
 
 /* .platform-selector > div:has(input:checked)::after{
@@ -173,6 +191,45 @@ nav:hover{
   height: 2px;
   background-color: white;
 } */
+
+
+
+
+.top-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+
+  --height: 6vmin;
+  height: var(--height);
+
+
+  & > *:not(platform) {
+    display: flex;
+    align-items: center;
+    height: 80%;
+
+
+    & > * {
+      height: 100%;
+    }
+
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 .gimmeaname{
@@ -221,7 +278,7 @@ nav:hover{
   justify-content: center;
   align-items: center;
 
-  & > .icon{
+  & > :is(icon, .icon){
     /* justify-self: start; */
     /* margin: 4% 0; */
     /* background-position-x: left; */
@@ -266,7 +323,7 @@ nav:hover{
 } */
 
 
-/* #preview > .info > .icon{
+/* #preview > .info > :is(icon, .icon){
   /* justify-self: start; */
   /* aspect-ratio: unset; */
   /* height: 100%; */
@@ -280,7 +337,7 @@ nav:hover{
   /* border: 2px solid white; */
   /* ^^^ resizes elements despite box sizing border box ^^^ */
 }
-:is(#games > div > div, #preview):has(.icon){
+:is(#games > div > div, #preview):has(:is(icon, .icon)){
   cursor: pointer;
 }
 
@@ -292,20 +349,20 @@ nav:hover{
   padding: 4%;
 } */
 
-#games > div > div > .icon{
+#games > div > div > :is(icon, .icon){
   transition: scale 250ms;
   padding: 16%;
   height: 100%;
   /* width: unset; */
 }
-#games > div > div:is(:hover,:focus-visible) > .icon{
+#games > div > div:is(:hover,:focus-visible) > :is(icon, .icon){
   scale: .95;
 }
 /* #preview:focus-within > div{
   flex-basis: 100%;
   height: 100%;
 }
-#preview:focus-within > .icon{
+#preview:focus-within > :is(icon, .icon){
   padding: 0;
 } */
 
@@ -320,7 +377,7 @@ body:has(.wrapper > .gimmeaname > div:hover)::before{
 .platform-selector > div:has(input:checked){
   background-color: rgba(255,255,255,0.25);
 }
-/* .platform-selector > div:has(input:checked) > .icon{
+/* .platform-selector > div:has(input:checked) > :is(icon, .icon){
   translate: 0 calc(-1 * var(--size));
 } */
 
@@ -359,7 +416,7 @@ body:has(.wrapper > .gimmeaname > div:hover)::before{
   flex-grow: 0;
   min-width: min-content;
 
-  /* &:hover > .icon{
+  /* &:hover > :is(icon, .icon){
     --stroke: 1px;
     filter: drop-shadow(var(--stroke) 0 0 white)
         drop-shadow(0 var(--stroke) 0 white)
@@ -380,7 +437,7 @@ body:has(.wrapper > .gimmeaname > div:hover)::before{
   box-sizing: content-box;
 }
 
-#preview > .content > button > .icon{
+#preview > .content > button > :is(icon, .icon){
   height: 2em;
 }
 
@@ -429,7 +486,7 @@ body:has(.wrapper > .gimmeaname > div:hover)::before{
       width: 100%;
     }
 
-    & > .icon{
+    & > :is(icon, .icon){
       flex-grow: 1;
       aspect-ratio: unset;
       height: 100%;
@@ -446,8 +503,10 @@ body:has(.wrapper > .gimmeaname > div:hover)::before{
       align-items: center;
 
       & > *{
-        background-color: rgba(0,0,0,0.25);
+        /* background-color: rgba(0,0,0,0.25); */
+        backdrop-filter: blur(4px);
         padding: 1ch 1em;
+        text-wrap: nowrap;
       }
 
     }
@@ -461,6 +520,7 @@ body:has(.wrapper > .gimmeaname > div:hover)::before{
     border-radius: 1em;
     /* background-color: rgba(0,0,0,0.25); */
     overflow: hidden;
+    backdrop-filter: blur(4px);
 
     & > div{
       /* border-radius: 0; */
@@ -473,11 +533,17 @@ body:has(.wrapper > .gimmeaname > div:hover)::before{
       border-radius: 1em;
 
       &:has(input:checked){
-        backdrop-filter: blur(4px);
+        background-color: rgba(0,0,0,0.1);
+
+        & > :is(icon, .icon){
+          filter: drop-shadow(0 0 2px rgb(220,220,220));
+          scale: 1.05;
+        }
       }
 
-      & > .icon{
+      & > :is(icon, .icon){
         width: 1em;
+        transition: scale 150ms, filter 150ms;
       }
 
     }

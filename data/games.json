@@ -47,6 +47,16 @@ var games = JSON.parse(`{
         "guides":[
 
         ]
+      },
+      "acnh":{
+        "title":"Animal Crossing New Horizons",
+        "series":"Animal Crossing",
+        "releaseDate":0,
+        "genres":["Sandbox","Building","City Builder","Casual"],
+        "preferredEmulator":"",
+        "guides":[
+
+        ]
       }
 
     },
