@@ -1,11 +1,25 @@
 tabbable {
 
+  & > *:not(.tabs) {
+    /* border-bottom-right-radius: unset !important; */
+    border-bottom-left-radius: unset !important;
+  }
+
   & > .tabs {
 
-    display: flex;
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+
+    border-top-right-radius: unset;
+    border-top-left-radius: unset;
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
 
 
     & > * {
+      text-align: center;
+
       border-radius: unset;
     }
 

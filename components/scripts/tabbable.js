@@ -4,10 +4,13 @@ class Tabbable {
     // $(instance).append($('#tabbable').find('> *'))
 
     $(instance).append('<div class="tabs"></div>')
+
     $(instance).find('> div:not(.tabs)').each(function() {
-      console.log($(this));
-      $(instance).find('> .tabs').append(`<div>${prettifyString($(this).attr('id'))}</div>`)
+      $(instance).find('> .tabs').append(`<span>${prettifyString($(this).attr('id'))}</span>`)
+
+      $(instance).find('> .tabs > *').append(`<input type="radio" name="${$(instance)}" tabindex="0">`)
     })
+
   }
 
 
