@@ -29,8 +29,11 @@ class Games {
       $('#preview').attr('data-game', $(this).attr('id'));
 
       $('#preview > .info > .chips > span').remove();
+
+      let game = ""
+
       try{
-        let game = games[$(`input[name='platform']:checked`).parent().attr('id')][$(this).attr('id')];
+        game = games[$(`input[name='platform']:checked`).parent().attr('id')][$(this).attr('id')];
 
         for (let genre of game.genres){
           $('#preview > .info > .chips').append(`
@@ -42,8 +45,15 @@ class Games {
         return;
       }
 
-      let path = `assets/titles/${$(this).attr('id')}.png`;
-      $('#preview > .info > :is(icon, .icon)').css('background-image', `url('${path}')`);
+      let asset = `${$(this).attr('id')}.png`;
+      $('#preview > .info > :is(icon, .icon)').css('background-image', `url('assets/titles/${asset}')`);
+
+      // console.log(games[$(this).attr('id')]);
+      asset = `${ game.series }.png`;
+      console.log(`game : ${game}`);
+      // rename /games/ to /logos/
+      // move *.png in /titles/ to /titles/games/
+      $('#preview > .series > :is(icon, .icon)').css('background-image', `url('assets/games/series/${asset}')`);
     });
   }
 

@@ -87,7 +87,7 @@ input, button{
 input[type="radio"]:not(:focus-visible){
   outline: none;
 }
-input[type="radio"]{
+input:is([type="radio"],[type="checkbox"]){
   margin: 0;
   height: 100%;
   width: 100%;
@@ -166,7 +166,7 @@ nav:hover{
   transition: filter 100ms, background-color 250ms;
 }
 .platform-selector div:is(:hover,:focus-within){
-  filter: brightness(1.2);
+  backdrop-filter: blur(8px) brightness(1.2);
 }
 
 .platform-selector > div > :is(icon, .icon){
@@ -344,8 +344,8 @@ nav:hover{
 }
 
 :is(#games > div > div, #preview):is(:hover,:focus-visible,:focus-within,:has(input:checked)),#preview{
-  backdrop-filter: blur(8px);
-  filter: brightness(1.25);
+  backdrop-filter: blur(8px) brightness(1.25);
+  /* filter: brightness(1.25); */
 }
 /* #preview:focus-within{
   padding: 4%;
@@ -472,6 +472,32 @@ tabbable#game {
     }
 
     overflow: hidden;
+
+  }
+
+
+
+  & > #preview {
+
+    & > .series {
+      position: absolute;
+      height: 20%;
+      aspect-ratio: 1/1;
+      margin: 2.5%;
+      right: 0;
+      bottom: 0;
+
+      filter: grayscale(1.0);
+      /* grayscale(100%) contrast(0) brightness(100) */
+
+      transition: filter 250ms;
+
+      &:hover {
+        filter: grayscale(0);
+      }
+
+
+    }
 
   }
 

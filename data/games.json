@@ -10,8 +10,8 @@ var games = JSON.parse(`{
 
       "totk":{
         "title":"Tears of the Kingdom",
-        "series":"The Legend of Zelda",
-        "releaseDate":0,
+        "series":"tloz",
+        "releaseDate":"CXIIky023y132d",
         "genres":["Open World","Sandbox","Exploration","Adventure"],
         "preferredEmulator":"",
         "guides":[
@@ -20,7 +20,7 @@ var games = JSON.parse(`{
       },
       "mk8dx":{
         "title":"Mario Kart 8 Deluxe",
-        "series":"Mario Kart",
+        "series":"mk",
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
@@ -30,7 +30,7 @@ var games = JSON.parse(`{
       },
       "splat2":{
         "title":"Splatoon 2",
-        "series":"Splatoon",
+        "series":"splat",
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
@@ -40,7 +40,7 @@ var games = JSON.parse(`{
       },
       "smash5":{
         "title":"Smash Bros Ultimate",
-        "series":"Super Smash Bros",
+        "series":"smash",
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
@@ -50,7 +50,7 @@ var games = JSON.parse(`{
       },
       "acnh":{
         "title":"Animal Crossing New Horizons",
-        "series":"Animal Crossing",
+        "series":"ac",
         "releaseDate":0,
         "genres":["Sandbox","Building","City Builder","Casual"],
         "preferredEmulator":"",
@@ -66,7 +66,7 @@ var games = JSON.parse(`{
 
       "botw":{
         "title":"Breath of the Wild",
-        "series":"The Legend of Zelda",
+        "series":"tloz",
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
@@ -76,7 +76,7 @@ var games = JSON.parse(`{
       },
       "mk8":{
         "title":"Mario Kart 8",
-        "series":"Mario Kart",
+        "series":"mk",
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
@@ -86,7 +86,7 @@ var games = JSON.parse(`{
       },
       "splat":{
         "title":"Splatoon",
-        "series":"Splatoon",
+        "series":"splat",
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
@@ -96,7 +96,7 @@ var games = JSON.parse(`{
       },
       "sm4sh":{
         "title":"Smash Bros for Wii U",
-        "series":"Super Smash Bros",
+        "series":"smash",
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
@@ -112,7 +112,7 @@ var games = JSON.parse(`{
 
       "tphd":{
         "title":"Twilight Princess HD",
-        "series":"The Legend of Zelda",
+        "series":"tloz",
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
@@ -122,7 +122,7 @@ var games = JSON.parse(`{
       },
       "mkwii":{
         "title":"Mario Kart Wii",
-        "series":"Mario Kart",
+        "series":"mk",
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
@@ -133,4 +133,13 @@ var games = JSON.parse(`{
 
     }
 
+}`)
+
+
+var series = JSON.parse(`{
+  "tloz":"The Legend of Zelda",
+  "mk":"Mario Kart",
+  "smash":"Super Smash Bros.",
+  "ac":"Animal Crossing",
+  "splat":"Splatoon"
 }`)

@@ -4,6 +4,11 @@ class Button {
     // $(instance).append(...)
 
     $(instance).children('label').text(prettifyString($(instance).attr('id')))
+
+    $(instance).append(`
+      <input type="checkbox" />
+    `)
+
   }
 }
 

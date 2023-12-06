@@ -18,6 +18,8 @@ tabbable {
 
 
     & > * {
+      cursor: pointer;
+
       text-align: center;
 
       border-radius: unset;

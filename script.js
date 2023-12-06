@@ -19,6 +19,15 @@ function prettifyString(text) {
 
 
 
+$('input[type="radio"]').on('click',function(){
+  console.log( $(this).prop('checked') );
+  if($(this).prop('checked')){
+    $(this).prop('checked',false)
+  }
+})
+
+
+
 // function diagonalFontSize(CascadeEntryPoint) {
 //   CascadeEntryPoint.css('font-size', (visualViewport.width**2 + visualViewport.height**2)**(1/2) / 100);
 // }

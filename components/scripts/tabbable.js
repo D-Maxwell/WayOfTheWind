@@ -6,9 +6,14 @@ class Tabbable {
     $(instance).append('<div class="tabs"></div>')
 
     $(instance).find('> div:not(.tabs)').each(function() {
-      $(instance).find('> .tabs').append(`<span>${prettifyString($(this).attr('id'))}</span>`)
+      $(instance).find('> .tabs').append(`
+        <div>
+          <span> ${prettifyString($(this).attr('id'))} </span>
+          <input type="radio" name="${$(instance).attr('id')}" tabindex="0">
+        </div>
+      `)
 
-      $(instance).find('> .tabs > *').append(`<input type="radio" name="${$(instance)}" tabindex="0">`)
+      // $(instance).find('> .tabs > *').append(`<input type="radio" name="${$(instance).attr('id')}" tabindex="0">`)
     })
 
   }
