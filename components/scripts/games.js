@@ -26,9 +26,9 @@ class Games {
   static onclick(instance) {
     $(instance).find('> div:not(:disabled) > div:has(input:checked)').each(function(){
       console.log(this);
-      $('#game').attr('data-game', $(this).attr('id'));
+      $($(instance).attr('data-link')).attr('data-game', $(this).attr('id'));
 
-      $($(instance).attr('data-link')).find('> .info > .chips > span').remove();
+      $($(instance).attr('data-link')).find('> #preview > .info > .chips > span').remove();
 
       let game = ""
 
@@ -36,7 +36,7 @@ class Games {
         game = games[$(`input[name='platform']:checked`).parent().attr('id')][$(this).attr('id')];
 
         for (let genre of game.genres){
-          $($(instance).attr('data-link')).find('> .info > .chips').append(`
+          $($(instance).attr('data-link')).find('> #preview > .info > .chips').append(`
             <span>${genre}</span>
           `);
         }
@@ -46,14 +46,14 @@ class Games {
       }
 
       let asset = `${$(this).attr('id')}.png`;
-      $($(instance).attr('data-link')).find('> .info > :is(icon, .icon)').css('background-image', `url('assets/titles/${asset}')`);
+      $($(instance).attr('data-link')).find('> #preview > .info > :is(icon, .icon)').css('background-image', `url('assets/titles/${asset}')`);
 
       // console.log(games[$(this).attr('id')]);
       asset = `${ game.series }.png`;
       console.log(`game : ${game}`);
       // rename /games/ to /logos/
       // move *.png in /titles/ to /titles/games/
-      $($(instance).attr('data-link')).find('> .series > :is(icon, .icon)').each(function(){
+      $($(instance).attr('data-link')).find('> #preview > .series > :is(icon, .icon)').each(function(){
         $(this).css('background-image', `url('assets/games/series/${asset}')`);
         $(this).attr('title', series[game.series]);
       })

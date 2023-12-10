@@ -22,7 +22,7 @@ var games = JSON.parse(`{
         "title":"Mario Kart 8 Deluxe",
         "series":"mk",
         "releaseDate":0,
-        "genres":[],
+        "genres":["Party","Racing"],
         "preferredEmulator":"",
         "guides":[
 
