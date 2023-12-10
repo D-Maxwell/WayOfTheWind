@@ -64,6 +64,8 @@ $('#games > div > div').each(function(idx){
     $('body').css('--backdrop',`url("assets/backdrops/${$(this).attr('id')}.png")`);
   };
 
+  // ${idx==0 ? 'checked' : ''}
+
   $(this).append(`<input type="radio" name="${$(this).parent().attr('id')}" tabindex="0" />`);
 })
 

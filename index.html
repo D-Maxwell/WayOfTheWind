@@ -42,9 +42,9 @@
 
         <games id="games" data-link="#preview"></games>
 
-        <tabbable id="game">
+        <tabbable id="game" data-game="">
 
-          <div id="preview" data-game="">
+          <div id="preview">
 
             <div class="info">
               <icon></icon>
@@ -69,19 +69,33 @@
 
           <div id="download">
 
-            <!-- <select name="version">
+            <select name="version">
               <option value="latest" disabled selected>(Latest)</option>
             </select>
 
             <button type="button" name="generate">
               <span>Download</span>
-              <textarea name="name" rows="8" cols="80">HashGoesHere</textarea>
             </button>
+            <textarea rows="1" cols="32">HashGoesHere</textarea>
 
-            <div class="">
+            <ul>
               <span>Recommended Setup Tools</span>
-              <span>LastBreathTOTKOptimizer</span>
-            </div> -->
+
+              <li>LastBreathTOTKOptimizer</li>
+            </ul>
+
+            <ul>
+              <span>Emulators</span>
+
+              <button id="ryujinx">
+                <icon></icon>
+              </button>
+
+              <button id="yuzu">
+                <icon></icon>
+              </button>
+
+            </ul>
 
           </div>
 
