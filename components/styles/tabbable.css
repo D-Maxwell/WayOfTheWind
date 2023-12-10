@@ -8,6 +8,7 @@ tabbable {
   & > .tabs {
 
     display: inline-grid;
+    width: fit-content;
     grid-auto-flow: column;
     grid-auto-columns: minmax(0, 1fr);
 
