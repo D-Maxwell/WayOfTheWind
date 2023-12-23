@@ -239,6 +239,13 @@ nav:hover{
   display: flex;
   flex-direction: column;
   gap: 1em;
+
+
+  & > * {
+    width: 100%;
+  }
+
+
 }
 
 #games{
@@ -268,7 +275,7 @@ nav:hover{
   gap: 4%;
   height: 100%;
 
-  transition: filter 250ms, aspect-ratio 250ms;
+  transition: backdrop-filter 250ms, aspect-ratio 250ms;
 
 
   &:is(:hover,:focus-visible,:focus-within,:has(input:checked)) {
@@ -493,7 +500,7 @@ tabbable#game {
 
 
     & > * {
-      padding: 0.5em;
+      padding: 0.5em 2ch;
       background-color: rgba(48,48,48,0.25);
       backdrop-filter: blur(8px) brightness(1);
 
@@ -633,4 +640,24 @@ tabbable#game {
 
   }
 
+}
+
+
+
+
+
+
+
+
+
+.WIP::after {
+  content: 'WIP';
+  /* background-color: white; */
+  backdrop-filter: blur(4px) brightness(1.25);
+  position: absolute;
+  --pad: 4ch;
+  top: calc(var(--pad) - 1.2em);
+  right: -1.5em;
+  rotate: 45deg;
+  padding: 0.1em var(--pad);
 }

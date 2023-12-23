@@ -1,0 +1,29 @@
+catalogue {
+
+  &[disabled] {
+    height: 0;
+    display: none;
+  }
+
+
+  display: grid;
+  /* grid-auto-flow: column; */
+  grid-template-columns: repeat(auto-fill, minmax(256px,1fr));
+  grid-auto-rows: 1fr;
+
+  gap: 1em;
+  transition: height 250ms, display 0ms ease 250ms;
+
+
+  & > div {
+    max-height: calc(7/4 * 256px);
+    /* aspect-ratio: 4/7;
+    max-height: 1fr; */
+
+    backdrop-filter: blur(4px) brightness(0.8);
+    border-radius: 0.25em;
+  }
+
+
+
+}

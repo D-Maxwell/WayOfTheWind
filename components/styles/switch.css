@@ -1,0 +1,9 @@
+switch {
+
+
+  &:has(input:checked) {
+    background-color: rgba(128,128,128,0.05);
+  }
+
+
+}

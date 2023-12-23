@@ -7,6 +7,8 @@
 
     <!-- <link rel="import" href="components/tags/tabbable.htm" id="tabbable"> -->
     <link rel="stylesheet" href="components/styles/tabbable.css">
+    <link rel="stylesheet" href="components/styles/switch.css">
+    <link rel="stylesheet" href="components/styles/catalogue.css">
   </head>
   <body>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -21,7 +23,7 @@
 
 
         <div>
-          <switch class="button" id="catalogue"> <!-- expand #games to reveal all (?) entries -->
+          <switch class="button" id="catalogue" data-link="catalogue"> <!-- expand #games to reveal all (?) entries -->
             <icon data-type="generic"></icon>
             <label></label>
           </switch>
@@ -39,6 +41,11 @@
 
 
       <div class="gimmeaname">
+
+        <catalogue disabled>
+
+        </catalogue>
+
 
         <games id="games" data-link="#game"></games>
 
@@ -103,6 +110,7 @@
 
         </tabbable>
 
+
       </div>
 
 
@@ -111,7 +119,8 @@
 
     <nav style="transform: scaleY(-1);
                 background-size: cover;
-                background-image: url('https://capsule-render.vercel.app/api?type=waving&color=6c7086&height=120&section=header');
+                background-image: url('https://capsule-render.vercel.app/api?type=waving&color=ffffff&height=120&section=header');
+                opacity: 0.25;
                 position: absolute;
                 width: 100%;
                 height: 140px;
@@ -130,6 +139,7 @@
     <script src="components/scripts/switch.js"></script>
     <script src="components/scripts/games.js"></script>
     <script src="components/scripts/tabbable.js"></script>
+    <script src="components/scripts/catalogue.js"></script>
 
   </body>
 </html>

@@ -1,0 +1,104 @@
+"id" : "title" "platform" "series" releaseDate ["genres"] "preferredEmulator" ["guides"]
+
+
+
+"totk" : {
+  "Tears of the Kingdom"
+  "tloz"
+  "CXIIky023y132d"
+  ["Open World","Sandbox","Exploration","Adventure"]
+  ""
+  []
+}
+
+
+"mk8dx" : {
+  "Mario Kart 8 Deluxe"
+  "mk"
+  0
+  ["Party","Racing"]
+  ""
+  []
+}
+
+
+"splat2":{
+  "Splatoon 2"
+  "splat"
+  0
+  []
+  ""
+  []
+}
+
+"smash5":{
+  "Smash Bros Ultimate"
+  "smash"
+  0
+  []
+  ""
+  []
+}
+
+"acnh":{
+  "Animal Crossing New Horizons"
+  "ac"
+  0
+  ["Sandbox","Building","City Builder","Casual"]
+  ""
+  []
+}
+
+"botw":{
+  "Breath of the Wild"
+  "tloz"
+  0
+  []
+  ""
+  []
+}
+
+"mk8":{
+  "Mario Kart 8"
+  "mk"
+  0
+  []
+  ""
+  []
+}
+
+"splat":{
+  "Splatoon"
+  "splat"
+  0
+  []
+  ""
+  []
+}
+
+"sm4sh":{
+  "Smash Bros for Wii U"
+  "smash"
+  0
+  []
+  ""
+  []
+}
+
+"tphd":{
+  "Twilight Princess HD"
+  "tloz"
+  0
+  []
+  ""
+  []
+}
+
+"mkwii":{
+  "Mario Kart Wii"
+  "mk"
+  0
+  []
+  ""
+  []
+}
