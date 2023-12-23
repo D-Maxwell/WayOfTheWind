@@ -106,6 +106,15 @@ input:is([type="radio"],[type="checkbox"]){
 }
 
 
+* {
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+
+
 nav{
   transition: filter 100ms;
 }

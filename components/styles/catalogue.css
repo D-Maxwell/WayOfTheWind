@@ -16,9 +16,9 @@ catalogue {
 
 
   & > div {
-    max-height: calc(7/4 * 256px);
-    /* aspect-ratio: 4/7;
-    max-height: 1fr; */
+    /* max-height: calc(7/4 * 256px); */
+    aspect-ratio: 4/7;
+    /* max-height: 1fr; */
 
     backdrop-filter: blur(4px) brightness(0.8);
     border-radius: 0.25em;

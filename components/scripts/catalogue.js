@@ -6,7 +6,9 @@ class Catalogue {
     for (let platform in games) {
       for (let game in games[platform]) {
         $(instance).append(`
-          <div></div>
+          <div id="${game}" style="background-image: url('assets/covers/${game}.png')">
+
+          </div>
         `)
       }
     }
