@@ -18,7 +18,7 @@ var games = JSON.parse(`{
         "playability":"gold",
         "dlc":[],
         "guides":[],
-        "description":"Embark on the Hero of the Wild's quest and that of the Princess Zelda to uncover the history of the lost Zonai tribe, a civilisation believed to have preceeded the current Kingdom of Hyrule. Following the events of Breath of the Wild, ancient forces awaken anew, revealing their divine presence, alongside the root of evil, the slumber of which should not have been disturbed. And yet you have. As such, your journey throughout Hyrule, scouring its lands, soaring its skies, spelunking its depths, begins."
+        "description":"Embark on the Hero of the Wild's quest and that of the Princess Zelda to uncover the history of the lost Zonai tribe, a civilisation believed to have preceeded the current Kingdom of Hyrule. Following the events of Breath of the Wild, ancient forces awaken anew, revealing their divine presence, alongside the root of evil, the slumber of which should not have been disturbed. And yet, as you craved this coveted missing piece to the kingdom's history, disturb you have. As such, your journey throughout Hyrule begins, scouring its lands, soaring its skies, spelunking its depths, as echoes of epochs reach you, all from the calamity you have unleashed."
       },
       "mk8dx":{
         "title":"Mario Kart 8 Deluxe",
