@@ -528,11 +528,13 @@ tabbable#game {
 
     & > .series {
       position: absolute;
-      height: 20%;
+      height: 16%;
       aspect-ratio: 1/1;
-      margin: 2.5%;
-      right: 0;
-      bottom: 0;
+      margin: 1.5%;
+      left: 0;
+      top: 0;
+      /* align-self: end;
+      margin-left: auto; */
 
       filter: grayscale(1.0);
       /* grayscale(100%) contrast(0) brightness(100) */
@@ -545,6 +547,13 @@ tabbable#game {
 
 
     }
+
+    & .description {
+      overflow: scroll;
+      height: 10ch;
+      display: block;
+    }
+
 
   }
 

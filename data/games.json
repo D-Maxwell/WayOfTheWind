@@ -11,12 +11,14 @@ var games = JSON.parse(`{
       "totk":{
         "title":"Tears of the Kingdom",
         "series":"tloz",
-        "releaseDate":"CXIIky023y132d",
+        "releaseDate":1367452800,
         "genres":["Open World","Sandbox","Exploration","Adventure"],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "recommendedVersion":"1.1.2",
+        "playability":"gold",
+        "dlc":[],
+        "guides":[],
+        "description":"Embark on the Hero of the Wild's quest and that of the Princess Zelda to uncover the history of the lost Zonai tribe, a civilisation believed to have preceeded the current Kingdom of Hyrule. Following the events of Breath of the Wild, ancient forces awaken anew, revealing their divine presence, alongside the root of evil, the slumber of which should not have been disturbed. And yet you have. As such, your journey throughout Hyrule, scouring its lands, soaring its skies, spelunking its depths, begins."
       },
       "mk8dx":{
         "title":"Mario Kart 8 Deluxe",
@@ -24,9 +26,16 @@ var games = JSON.parse(`{
         "releaseDate":0,
         "genres":["Party","Racing"],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "playability":"platinum",
+        "dlc":[
+          "wave1",
+          "wave2",
+          "wave3",
+          "wave4",
+          "wave5",
+          "wave6"
+        ],
+        "guides":[]
       },
       "splat2":{
         "title":"Splatoon 2",
@@ -34,9 +43,7 @@ var games = JSON.parse(`{
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "guides":[]
       },
       "smash5":{
         "title":"Smash Bros Ultimate",
@@ -44,9 +51,12 @@ var games = JSON.parse(`{
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "dlc":[
+          "pass1",
+          "pass2",
+          "piranha plant"
+        ],
+        "guides":[]
       },
       "acnh":{
         "title":"Animal Crossing New Horizons",
@@ -54,9 +64,7 @@ var games = JSON.parse(`{
         "releaseDate":0,
         "genres":["Sandbox","Building","City Builder","Casual"],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "guides":[]
       }
 
     },
@@ -70,9 +78,7 @@ var games = JSON.parse(`{
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "guides":[]
       },
       "mk8":{
         "title":"Mario Kart 8",
@@ -80,9 +86,7 @@ var games = JSON.parse(`{
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "guides":[]
       },
       "splat":{
         "title":"Splatoon",
@@ -90,9 +94,7 @@ var games = JSON.parse(`{
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "guides":[]
       },
       "sm4sh":{
         "title":"Smash Bros for Wii U",
@@ -100,9 +102,7 @@ var games = JSON.parse(`{
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "guides":[]
       }
 
     },
@@ -116,9 +116,7 @@ var games = JSON.parse(`{
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "guides":[]
       },
       "mkwii":{
         "title":"Mario Kart Wii",
@@ -126,9 +124,7 @@ var games = JSON.parse(`{
         "releaseDate":0,
         "genres":[],
         "preferredEmulator":"",
-        "guides":[
-
-        ]
+        "guides":[]
       }
 
     }
@@ -137,9 +133,11 @@ var games = JSON.parse(`{
 
 
 var series = JSON.parse(`{
+
   "tloz":"The Legend of Zelda",
   "mk":"Mario Kart",
   "smash":"Super Smash Bros.",
   "ac":"Animal Crossing",
   "splat":"Splatoon"
+
 }`)

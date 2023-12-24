@@ -56,10 +56,36 @@ class Games {
       console.log(`game : ${game}`);
       // rename /games/ to /logos/
       // move *.png in /titles/ to /titles/games/
-      $($(instance).attr('data-link')).find('> #preview > .series > :is(icon, .icon)').each(function(){
+      $(link).find('> #preview > .series > :is(icon, .icon)').each(function(){
         $(this).css('background-image', `url('assets/games/series/${asset}')`);
         $(this).attr('title', series[game.series]);
       })
+
+
+      function prettyFormat(text) {
+        text = text.split(".")
+        for (let [s,sentence] of text.entries()) {
+          text[s] = sentence.trim()
+          if (sentence == "") {
+            text.pop()
+          }
+        }
+        return text
+      }
+
+      $(link).find('> #preview .description > *').remove();
+
+      for (const sentence of prettyFormat(game.description)) {
+        $(link).find('> #preview .description').append(`
+          <p>${sentence}.</p>
+        `)
+      }
+
+
+      // $(link).find('> #preview > .description').text(
+      //   prettyFormat(game.description)
+      // )
+
 
     });
   }
