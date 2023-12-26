@@ -558,8 +558,16 @@ tabbable#game {
 
     & .description {
       overflow-y: scroll;
+      scroll-snap-type: y;
       height: 10ch;
       display: block;
+
+
+      & > * {
+        scroll-snap-align: center;
+      }
+
+
     }
 
 
