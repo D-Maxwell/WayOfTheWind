@@ -45,7 +45,7 @@ var games = JSON.parse(`{
         "preferredEmulator":"",
         "guides":[]
       },
-      "smash5":{
+      "ssbu":{
         "title":"Smash Bros Ultimate",
         "series":"smash",
         "releaseDate":0,

@@ -1,0 +1,155 @@
+tabbable#game {
+
+  border-radius: 1em;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 25em;
+
+  transition: height 250ms;
+
+
+  & > *:not(.tabs) {
+    flex-grow: 1;
+    /* width: 100%; */
+    backdrop-filter: blur(8px) brightness(1.25);
+    background-color: rgba(48,48,48,0.25);
+  }
+
+  &[data-game=""]{
+    height: 0;
+  }
+
+
+
+  & > .tabs {
+
+    /* bottom: -0.5em; */
+
+
+    & > * {
+      padding: 0.5em 2ch;
+      background-color: rgba(48,48,48,0.25);
+      backdrop-filter: blur(8px) brightness(1);
+
+      &:has(:checked) {
+        backdrop-filter: blur(8px) brightness(1.25);
+      }
+
+    }
+
+    overflow: hidden;
+
+  }
+
+
+  & > #preview {
+
+    display: flex;
+    /* height: 20em; */
+    /* background-color: rgba(48,48,48,0.25); */
+    /* backdrop-filter: blur(4px) brightness(0.8); */
+    border-radius: inherit;
+
+    transition: filter 250ms, aspect-ratio 250ms, height 250ms;
+
+
+    & > *{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* flex-grow: 1; */
+    }
+
+
+    & > .info{
+      aspect-ratio: unset;
+      min-width: 50%;
+      padding: 1em;
+
+
+      & > *{
+        width: 100%;
+      }
+
+      & > :is(icon, .icon){
+        flex-grow: 1;
+        aspect-ratio: unset;
+        height: 100%;
+        margin: 0;
+        padding: 0.75em;
+
+        transition: background-image 250ms;
+      }
+
+      & > .chips{
+        display: flex;
+        gap: 0.5ch;
+        border-radius: 1ch;
+        overflow: hidden;
+        width: fit-content;
+        align-items: center;
+
+        & > *{
+          /* background-color: rgba(0,0,0,0.25); */
+          backdrop-filter: blur(4px);
+          padding: 1ch 1em;
+          text-wrap: nowrap;
+          white-space: nowrap;
+        }
+
+      }
+
+    }
+
+
+    & > .series {
+      position: absolute;
+      height: 12%;
+      aspect-ratio: 1/1;
+      margin: 1.5%;
+      left: 0;
+      top: 0;
+      /* align-self: end;
+      margin-left: auto; */
+
+      filter: grayscale(1.0);
+      /* grayscale(100%) contrast(0) brightness(100) */
+
+      transition: filter 250ms, background-image 250ms;
+
+      &:hover {
+        filter: grayscale(0);
+      }
+
+
+    }
+
+    & .description {
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      height: 10ch;
+      /* display: flex;
+      flex-direction: column; */
+      padding: 1em;
+      /* gap: 1em; */
+
+
+      & > * {
+        scroll-snap-align: center;
+        text-align: justify;
+        margin: 2ch 0;
+        /* all: unset;
+        display: block; */
+      }
+
+
+    }
+
+
+  }
+
+
+}

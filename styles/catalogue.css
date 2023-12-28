@@ -1,0 +1,43 @@
+catalogue {
+
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2,1fr);
+
+  gap: 1em;
+  transition: height 250ms, display 0ms ease 250ms;
+
+  & > div {
+    /* max-height: calc(7/4 * 256px); */
+    aspect-ratio: 4/7;
+    /* max-height: 1fr; */
+
+    /* overflow: hidden; */
+
+    perspective: 30em;
+
+    cursor: pointer;
+
+
+    & > hero {
+      /* background-size: 100%; */
+
+      border-radius: 0.25em;
+      backdrop-filter: blur(4px) brightness(0.8);
+
+      transform-origin: bottom;
+
+      transition: scale 450ms, transform 450ms;
+    }
+
+
+    &:hover {
+      & > hero {
+        scale: 1.1;
+        transform: rotateX(10deg);
+      }
+    }
+
+
+  }
+
+}
