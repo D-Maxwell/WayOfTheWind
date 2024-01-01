@@ -83,35 +83,37 @@
 
           </div>
 
-          <div id="install" class="WIP">
+          <div id="install">
 
-            <select name="version">
-              <option value="latest" disabled selected>(Stable)</option>
-            </select>
+            <!-- <div id="extract">
+              <span>Extract the desired ROM from your switch cartridge</span>
+              <span>As well as any other update files</span>
+            </div> -->
 
-            <button type="button" name="generate">
-              <span>Install</span>
-            </button>
-            <!-- <textarea rows="1" cols="32">HashGoesHere</textarea> -->
+            <div id="checkup">
+              <picker>
+                <div id="ryujinx">
+                  <span>Ryujinx</span>
+                  <input type="radio" name="emulator" value="ryujinx">
+                </div>
+                <div id="yuzu">
+                  <span>Yuzu</span>
+                  <input type="radio" name="emulator" value="yuzu">
+                </div>
+              </picker>
 
-            <ul>
-              <span>Recommended Setup Tools</span>
+              
 
-              <li>LastBreathTOTKOptimizer</li>
-            </ul>
+            </div>
 
-            <ul>
-              <span>Emulators</span>
+            <div id="setup">
+              <div id="patcher">
 
-              <button id="ryujinx">
-                <icon data-type="emulators"></icon>
-              </button>
+              </div>
+              <div id="required-mods">
 
-              <button id="yuzu">
-                <icon data-type="emulators"></icon>
-              </button>
-
-            </ul>
+              </div>
+            </div>
 
           </div>
 

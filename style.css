@@ -554,7 +554,7 @@ body:has(.wrapper > .gimmeaname > div:hover)::before{
 
 
 
-.WIP::after {
+/* .WIP::after {
   content: 'WIP';
   /* background-color: white; */
   backdrop-filter: blur(4px) brightness(1.25);
@@ -564,4 +564,4 @@ body:has(.wrapper > .gimmeaname > div:hover)::before{
   right: -1.5em;
   rotate: 45deg;
   padding: 0.1em var(--pad);
-}
+} */

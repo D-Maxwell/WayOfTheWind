@@ -4,6 +4,9 @@ class Platform {
 
     $(instance).find('> div').each(function() {
       $(this).append(`<input type="radio" name="${$(this).parent().attr('id')}" ${$(this).attr('checked') ? "checked" : ""} />`);
+      if ($(this).attr('checked')) {
+        $(':root').css('--platform', $(this).attr('id'))
+      }
     })
 
 
@@ -20,6 +23,8 @@ class Platform {
   static onclick(instance) {
     instance.platform = $(`input[name='platform'][type='radio']:checked`).parent();
     instance.val = instance.platform.index();
+
+    $(':root').css('--platform', instance.platform.attr('id'))
 
     $(instance).css('--pos',
       $(instance.platform).position().left + 'px'
